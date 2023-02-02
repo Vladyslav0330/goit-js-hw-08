@@ -23,6 +23,8 @@ function onFormInput(evt) {
 function onFormSubmit(evt) {
   evt.preventDefault();
 
+  console.log(evt);
+
   evt.currentTarget.reset();
 
   localStorage.removeItem(STORAGE_KEY);
@@ -33,8 +35,12 @@ function getStorageData() {
   const parseData = JSON.parse(data);
 
   if (parseData) {
-    formObject.email.value = parseData.email;
-    formObject.message.value = parseData.message;
+    parseData.email
+      ? (formObject.email.value = parseData.email)
+      : (formObject.email.value = '');
+    parseData.message
+      ? (formObject.message.value = parseData.message)
+      : (formObject.message.value = '');
   }
 }
 
