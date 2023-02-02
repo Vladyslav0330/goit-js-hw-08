@@ -23,7 +23,7 @@ function onFormInput(evt) {
 function onFormSubmit(evt) {
   evt.preventDefault();
 
-  console.log(evt);
+  console.log(params);
 
   evt.currentTarget.reset();
 
